@@ -3,6 +3,7 @@ Overview.
 This work develops the NSBC (non-stationary bias correction) methodology to correct temperature projection bias from E3SM.
 The NSBC deep learning framework consists of a three-part architecture: an auto-encoder for compressing the spatial information, an LSTM for predicting annual temperature mean, and a U-Net for capturing the residual bias in temperature. The non-stationary bias correction (NSBC) framework can correct the non-stationarity of the biases of the climate models, which significantly improves the accuracy of future temperature prediction and improves the overestimation of extreme high temperatures that many existing bias correction methods suffer from. The detail structure of the NSBC framework is as follows.
 ![NSBC structure](images/Slide1.png) 
+
 Below we provide guidance for applying NSBC to correct the Energy Exascale Earth System Model (E3SM; Golaz et al. 2019) daily temperature projection over the contiguous United States (CONUS).
 Getting started
 1. Obtain the historical climate simulation and observation data.
