@@ -315,8 +315,9 @@ class Trainer:
             _std_target = torch.std(target, 0)
             _median_out=torch.median(out, 0)[0]
             _median_target=torch.median(target, 0)[0]
-            loss = torch.nn.functional.mse_loss(out, target)+2*torch.nn.functional.mse_loss(_median_out, _median_out)+0.5*torch.nn.functional.mse_loss(_mean_out, _mean_out)
-            +0.5*torch.nn.functional.mse_loss(_std_out, _std_out)
+            loss = torch.nn.functional.mse_loss(out, target)+ 2.0 * torch.nn.functional.mse_loss(_median_out, _median_target)+ 0.5 * torch.nn.functional.mse_loss(_mean_out, _mean_target)
+            + 0.5 * torch.nn.functional.mse_loss(_std_out, _std_target)
+
             y1 = out.detach().cpu().numpy()
             test_y_mean = np.std(target.detach().cpu().numpy(), 0)
             pred_y_mean = np.std(y1, 0)
